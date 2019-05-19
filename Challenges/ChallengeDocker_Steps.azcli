@@ -1,0 +1,28 @@
+# Be sure Docker daemon is running
+docker version
+
+# Search oficial nginx repo
+docker search --filter "is-official=true" nginx
+
+# Get the images (tags) within nginx repo
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/nginx/tags?page_size=1024'|jq '."results"[]["name"]'
+
+# Choose the latest (without "alpine" and "perl") e.g. "1.16.0"
+docker pull nginx:1.16.0
+docker image ls nginx:1.16.0
+
+# Browse the manifest
+docker inspect nginx:1.16.0
+
+# Build your own image "red" locally
+cd Docker
+cat Dockerfile
+docker build -t mynginx:red .
+docker image ls 
+
+# Test the new image locally
+docker run --name red --rm -d -p 80:80 mynginx:red
+docker ps
+docker rm -f red
+docker ps -a
+docker image ls
