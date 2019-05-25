@@ -22,7 +22,8 @@ docker image ls
 
 # Test the new image locally
 docker run --name red --rm -d -p 80:80 mynginx:red
+# Test with your local browser
 docker ps
-docker rm -f red
+docker kill red
 docker ps -a
 docker image ls
