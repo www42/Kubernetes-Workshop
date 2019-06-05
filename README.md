@@ -10,8 +10,8 @@ Diagram by [Lucas Käldström](https://docs.google.com/presentation/d/1Gp-2blk5W
 
 ## Challenges ##
 
-[Challenge 1](ChallengeDocker.md) - Build a Docker image locally
+[Challenge 1](Challenges/ChallengeDocker.md) - Build a Docker image locally
 
-[Challenge 2](ChallengeRegistry.md) - Create your own private Container Registry in Azure
+[Challenge 2](Challenges/ChallengeRegistry.md) - Create your own private Container Registry in Azure
 
-[Challenge 3](ChallengeKubernetes.md) - Create Kubernetes cluster in Azure
+[Challenge 3](Challenges/ChallengeKubernetes.md) - Create Kubernetes cluster in Azure
