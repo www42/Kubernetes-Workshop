@@ -98,3 +98,16 @@ Server Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.3", GitCom
 $
 ```
 
+### Pods ###
+
+![ASP.Net sample Application from docs.microsoft.com](./img/pods-driveway.jpg "Sample Application")
+
+    - Pods are the basic unit for running Containers inside of Kubernetes
+    - Pods can have one or more containers inside
+    - A Pod provides a way to set enviroment variables, mount storage, and feed other Information into a container
+
+In Kubernetes, Pods are responsible for running your containers. Every Pod holds at least one container, and controls the execution of that container. When the containers exit, the Pod dies too.
+
+### ReplicaSets ###
+
+
