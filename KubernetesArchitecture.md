@@ -11,25 +11,25 @@ Diagram by [Lucas Käldström](https://docs.google.com/presentation/d/1Gp-2blk5W
 
 
 ## Here's what you'll learn: ##
-- Kubernetes basics
-    - Why Kubernetes and Orchestration in General
-    - Hello world: Minikube basics, talking through Minikube,
-    - Cluster and basic commands, 
-    - Nodes, 
-    - Deployments, what it is and deploying an app
-    - Pods and Nodes, explain concepts and troubleshooting
+Kubernetes basics
+- Why Kubernetes and Orchestration in General
+- Hello world: Minikube basics, talking through Minikube,
+- Cluster and basic commands, 
+- Nodes, 
+- Deployments, what it is and deploying an app
+- Pods and Nodes, explain concepts and troubleshooting
 
-- Resources
-    - Kubernetes.io One of the best resources to learn about Kubernetes is at this official Kubernetes site by Google.
-    - Kubernetes overview An overview on Kubernetes, all its parts and how it works
-    - Free Azure Account If you want to try out AKS, Azure Kubernetes Service, you will need a free Azure account
-    - Kubernetes in the Cloud Do you feel you know everything about Kubernetes already and just want to learn how to use a managed service? Then this link is for you
-    - Documentation on AKS, Azure Kubernetes Service Azure Kubernetes Service, a managed Kubernetes
-    - Best practices on AKS You already know AKS and want to learn how to use it better?
-- Deployment
-    - How to a simple deploy example
-    - How to 
-    - How to 
+Resources
+- Kubernetes.io One of the best resources to learn about Kubernetes is at this official Kubernetes site by Google.
+- Kubernetes overview An overview on Kubernetes, all its parts and how it works
+- Free Azure Account If you want to try out AKS, Azure Kubernetes Service, you will need a free Azure account
+- Kubernetes in the Cloud Do you feel you know everything about Kubernetes already and just want to learn how to use a managed service? Then this link is for you
+- Documentation on AKS, Azure Kubernetes Service Azure Kubernetes Service, a managed Kubernetes
+- Best practices on AKS You already know AKS and want to learn how to use it better?
+Deployment
+- How to a simple deploy example
+- How to 
+- How to 
 
 ## Kubernetes - Why Orchestration ##
 
@@ -39,13 +39,13 @@ Well, it all started with containers. Containers gave us the ability to create r
 
 At this point, we need orchestration the ability for a system to handle all these container instances. This is where Kubernetes comes in.
 
-## Kubernetes ##
+## Kubernetes ##
 
 So what do we know about Kubernetes?
 It's an open-source system for automating deployment, scaling, and management of containerized applications
 Let'start with the name. It's Greek for Helmsman, the person who steers the ship. Which is why the logo looks like this, a steering wheel on a boat:
 
-![ASP.Net sample Application from docs.microsoft.com](./img/Kubernetes.png "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./images/Kubernetes.png "Sample Application")
 
 It's Also called K8s so K ubernete s, 8 characters in the middle are removed. Now you can impress your friends that you know why it's referred to as K8.
 Here is some more Jeopardy knowledge on its origin. Kubernetes was born out of systems called Borg and Omega. It was donated to CNCF, Cloud Native Computing Foundation in 2014. It's written in Go/Golang.

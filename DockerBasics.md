@@ -231,15 +231,17 @@ ENTRYPOINT ["dotnet", "myapp.dll"]
 
 In this file:
 
-- The FROM statement downloads the specified image and creates a new container based on this image.
-- The WORKDIR command sets the current working directory in the container, used by the following commands.
-- The COPY command copies files from the host computer to the container. The first argument (myapp_code) is a file or folder on the host computer. The second argument (*.*) specifies the name of the file or folder to act as the destination in the container. In this case, the destination is the current working directory (/app).
-- The RUN command executes a command in the container. Arguments to the RUN command are command-line commands.
-- The EXPOSE command creates configuration in the new image that specifies which ports are intended to be opened when the container is run. If the container is running a web app, it's common to EXPOSE port 80.
-- The ENTRYPOINT command specifies the operation the container should run when it starts. In this example, it runs the newly-built app. You specify the command to be run and each of its arguments as a string array.
+- The **FROM** statement downloads the specified image and creates a new container based on this image.
+- The **WORKDIR** command sets the current working directory in the container, used by the following commands.
+- The **COPY** command copies files from the host computer to the container. The first argument (myapp_code) is a file or folder on the host computer. The second argument (*.*) specifies the name of the file or folder to act as the destination in the container. In this case, the destination is the current working directory (/app).
+- The **RUN** command executes a command in the container. Arguments to the RUN command are command-line commands.
+- The **EXPOSE** command creates configuration in the new image that specifies which ports are intended to be opened when the container is run. If the container is running a web app, it's common to EXPOSE port 80.
+- The **ENTRYPOINT** command specifies the operation the container should run when it starts. In this example, it runs the newly-built app. You specify the command to be run and each of its arguments as a string array.
 
+***
 * Note
 The ENTRYPOINT is also the only thing worth living for the container by removing it you also force the container to go out of live. Even it is like that, there is no testing for health or vital conditions in conatainers. So you will have to check and monitor the container from the hosting system you, yourself.
+***
 
 By convention, applications meant to be packaged as Docker images typically have a Dockerfile located in the root of their source code, and it's almost always named Dockerfile. This is an convention we will also stick to.
 
