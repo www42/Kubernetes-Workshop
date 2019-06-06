@@ -102,7 +102,7 @@ Application started. Press Ctrl+C to shut down.
 
 This image contains a web app, so it's now listening for requests to arrive on HTTP port 80. However, if you open a web browser and navigate to ```http://localhost:80```, you won't see the app.
 
-![ASP.Net sample Application from docs.microsoft.com](./img/2-sample-web-app.png "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./images/2-sample-web-app.png "Sample Application")
 
 By default, Docker doesn't allow inbound network requests to reach your container. To enable network requests, you need to tell Docker to assign a specific port number from your computer to a specific port number in the container by adding the ```-p``` option to ```docker run```.
 
@@ -228,13 +228,15 @@ EXPOSE 80
 WORKDIR /rel
 ENTRYPOINT ["dotnet", "myapp.dll"]
 ```
+
 In this file:
-    - The FROM statement downloads the specified image and creates a new container based on this image.
-    - The WORKDIR command sets the current working directory in the container, used by the following commands.
-    - The COPY command copies files from the host computer to the container. The first argument (myapp_code) is a file or folder on the host computer. The second argument (*.*) specifies the name of the file or folder to act as the destination in the container. In this case, the destination is the current working directory (/app).
-    - The RUN command executes a command in the container. Arguments to the RUN command are command-line commands.
-    - The EXPOSE command creates configuration in the new image that specifies which ports are intended to be opened when the container is run. If the container is running a web app, it's common to EXPOSE port 80.
-    - The ENTRYPOINT command specifies the operation the container should run when it starts. In this example, it runs the newly-built app. You specify the command to be run and each of its arguments as a string array.
+
+- The FROM statement downloads the specified image and creates a new container based on this image.
+- The WORKDIR command sets the current working directory in the container, used by the following commands.
+- The COPY command copies files from the host computer to the container. The first argument (myapp_code) is a file or folder on the host computer. The second argument (*.*) specifies the name of the file or folder to act as the destination in the container. In this case, the destination is the current working directory (/app).
+- The RUN command executes a command in the container. Arguments to the RUN command are command-line commands.
+- The EXPOSE command creates configuration in the new image that specifies which ports are intended to be opened when the container is run. If the container is running a web app, it's common to EXPOSE port 80.
+- The ENTRYPOINT command specifies the operation the container should run when it starts. In this example, it runs the newly-built app. You specify the command to be run and each of its arguments as a string array.
 
 * Note
 The ENTRYPOINT is also the only thing worth living for the container by removing it you also force the container to go out of live. Even it is like that, there is no testing for health or vital conditions in conatainers. So you will have to check and monitor the container from the hosting system you, yourself.
