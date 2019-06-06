@@ -56,7 +56,7 @@ A repository is also the unit of privacy for an image. If you don't wish to shar
 Often you'll find that there's an image in Docker Hub that closely matches the type of app you want to containerize. You can download such an image and extend it with your own application code.
 Docker Hub contains many thousands of images. While it's possible to search and browse a registry using Docker from the command line, Docker Hub offers a website that enables you to search, filter, and select images by type and publisher. The figure below shows an example of the search page.
 
-![Docker Hub from hub.docker.com](./img/2-docker-hub-search.png "Docker Hub")
+![Docker Hub from hub.docker.com](./images/2-docker-hub-search.png "Docker Hub")
 
 You retrieve an image by using the docker pull command with the image name. If you specify only the repository name, Docker will download the image tagged latest from that repository on Docker Hub, but you can modify the command to pull different tags and from different repositories. This example fetches the image with the tag aspnetappfrom the microsoft/dotnet-samples repository (this image contains a simple ASP.NET web app).
 
