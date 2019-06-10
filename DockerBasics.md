@@ -56,7 +56,7 @@ A repository is also the unit of privacy for an image. If you don't wish to shar
 Often you'll find that there's an image in Docker Hub that closely matches the type of app you want to containerize. You can download such an image and extend it with your own application code.
 Docker Hub contains many thousands of images. While it's possible to search and browse a registry using Docker from the command line, Docker Hub offers a website that enables you to search, filter, and select images by type and publisher. The figure below shows an example of the search page.
 
-![Docker Hub from hub.docker.com](./img/2-docker-hub-search.png "Docker Hub")
+![Docker Hub from hub.docker.com](./images/2-docker-hub-search.png "Docker Hub")
 
 You retrieve an image by using the docker pull command with the image name. If you specify only the repository name, Docker will download the image tagged latest from that repository on Docker Hub, but you can modify the command to pull different tags and from different repositories. This example fetches the image with the tag aspnetappfrom the microsoft/dotnet-samples repository (this image contains a simple ASP.NET web app).
 
@@ -102,7 +102,7 @@ Application started. Press Ctrl+C to shut down.
 
 This image contains a web app, so it's now listening for requests to arrive on HTTP port 80. However, if you open a web browser and navigate to ```http://localhost:80```, you won't see the app.
 
-![ASP.Net sample Application from docs.microsoft.com](./img/2-sample-web-app.png "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./images/2-sample-web-app.png "Sample Application")
 
 By default, Docker doesn't allow inbound network requests to reach your container. To enable network requests, you need to tell Docker to assign a specific port number from your computer to a specific port number in the container by adding the ```-p``` option to ```docker run```.
 
@@ -197,3 +197,62 @@ consoleCopy
 ```
 Error response from daemon: conflict: unable to delete 575d85b4a69b (cannot be forced) - image is being used by running container c13165988cfe
 ```
+## Customize a Docker image to run your own web app ##
+
+Docker Hub is an excellent source of images to get you started building your own containerized apps. You can download an image that provides the basic functionality you require, and layer your own application on top of it to create a new custom image. You can automate the steps for doing this process by writing a Dockerfile.
+
+In the scenario of an online clothing store, the company has decided that Docker is the way forward. The next step is to determine the best way to containerize your web applications. The company plans to build many of the apps using ASP.NET Core, and you've noticed that Docker Hub contains a base image that includes this framework as well as Nginx webserver for the webcomponents. As a proof of concept, you want to take this base images and add the code for one of the web apps to create a new custom image. You also want this process to be easily repeatable, so it can be automated whenever a new version of the web app is released.
+In this unit, you'll learn how to create a custom Docker image, and how you can automate the process by writing a Dockerfile.
+
+## Create a custom image with a Dockerfile ##
+
+To create a Docker image containing your application, you'll typically begin by identifying a base image to which you add additional files and configuration. The process of identifying a suitable base image usually starts with a search on Docker Hub for a ready-made image that already contains an application framework and all the utilities and tools of a Linux distribution like Ubuntu or Alpine.
+
+For example, if you have an ASP.NET Core application that you want to package into a container, Microsoft publishes an image called mcr.microsoft.com/dotnet/core/aspnet that already contains the ASP.NET Core runtime.
+So you will only have to find an official image for the Nginx webserver on the Docker Hub.
+
+An image can be customized by starting a container with the base image and making changes to it. Changes usually involve activities like copying files into the container from the local filesystem, and running various tools and utilities to compile code. When finished, you would use the docker commit command to save the changes to a new image.
+
+Manually completing the above process is time-consuming and error-prone. It could be scripted with a script language like Bash, but Docker provides a more effective way of automating image creation via a Dockerfile.
+
+A Dockerfile is a plain text file containing all the commands needed to build an image. Dockerfiles are written in a minimal scripting language designed for building and configuring images. documents the operations required to build an image starting with a base image.
+The following example shows a Dockerfile that builds a .NET Core 2.2 application and packages it into a new image.
+
+DockerfileCopy
+```
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+WORKDIR /app
+COPY myapp_code .
+RUN dotnet build -c Release -o /rel
+EXPOSE 80
+WORKDIR /rel
+ENTRYPOINT ["dotnet", "myapp.dll"]
+```
+
+In this file:
+
+- The **FROM** statement downloads the specified image and creates a new container based on this image.
+- The **WORKDIR** command sets the current working directory in the container, used by the following commands.
+- The **COPY** command copies files from the host computer to the container. The first argument (myapp_code) is a file or folder on the host computer. The second argument (*.*) specifies the name of the file or folder to act as the destination in the container. In this case, the destination is the current working directory (/app).
+- The **RUN** command executes a command in the container. Arguments to the RUN command are command-line commands.
+- The **EXPOSE** command creates configuration in the new image that specifies which ports are intended to be opened when the container is run. If the container is running a web app, it's common to EXPOSE port 80.
+- The **ENTRYPOINT** command specifies the operation the container should run when it starts. In this example, it runs the newly-built app. You specify the command to be run and each of its arguments as a string array.
+
+***
+* Note
+The ENTRYPOINT is also the only thing worth living for the container by removing it you also force the container to go out of live. Even it is like that, there is no testing for health or vital conditions in conatainers. So you will have to check and monitor the container from the hosting system you, yourself.
+***
+
+By convention, applications meant to be packaged as Docker images typically have a Dockerfile located in the root of their source code, and it's almost always named Dockerfile. This is an convention we will also stick to.
+
+The docker ```build``` command creates a new image by running a Dockerfile. The ```-f``` flag indicates the name of the Dockerfile to use. The ```-t``` flag specifies the name of the image to be created, in this example, myapp:v1. The final parameter, ```.```, provides the build context for the source files for the COPY command: the set of files on the host computer needed during the build process.
+
+bashCopy
+```
+docker build -t myapp:v1 .
+```
+
+Behind the scenes, the docker build command creates and runs a container, runs commands in it, then commits the changes to a new image.
+
+We can do the whole build process in one stage this time. But you can also do mulit-staged build process. Which actually means you change the base images and frameworks used for compiling, configuring and operating accordingly. 
+The best thing using Dockerfiles is, it provides you an easy way to handle updates on frameworks and base images.
