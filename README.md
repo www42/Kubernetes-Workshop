@@ -15,3 +15,6 @@
 [Challenge 2](Challenges/ChallengeRegistry.md) - Create your own private Container Registry in Azure
 
 [Challenge 3](Challenges/ChallengeKubernetes.md) - Create Kubernetes cluster in Azure
+
+## Resources ##
+[Play with Docker](http://play-with-docker.com/)
