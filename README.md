@@ -17,4 +17,6 @@
 [Challenge 3](Challenges/ChallengeKubernetes.md) - Create Kubernetes cluster in Azure
 
 ## Resources ##
+[Docker Hub](https://hub.docker.com/)
+
 [Play with Docker](http://play-with-docker.com/)
