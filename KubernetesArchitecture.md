@@ -5,7 +5,7 @@ It enables you to abstract away the underlying infrastructure to dynamically sca
 
 Through specifying your "desired state" (within manifests), the K8S control plane works behind the scenes to ensure the current state of your application meets the desired state.  It does so even in the event of your application crashing or if there is a hardware failure.
 
-![K8S Architecture from Kubernetes.io](./images/K8S-Architecture.png "K8S Architecture")
+![K8S Architecture from Kubernetes.io](./img/K8S-Architecture.png "K8S Architecture")
 
 Diagram by [Lucas Käldström](https://docs.google.com/presentation/d/1Gp-2blk5WExI_QR59EUZdwfO2BWLJqa626mK2ej-huo/edit#slide=id.g1e639c415b_0_56)
 
@@ -45,7 +45,7 @@ So what do we know about Kubernetes?
 It's an open-source system for automating deployment, scaling, and management of containerized applications
 Let'start with the name. It's Greek for Helmsman, the person who steers the ship. Which is why the logo looks like this, a steering wheel on a boat:
 
-![ASP.Net sample Application from docs.microsoft.com](./images/Kubernetes.png "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./img/Kubernetes.png "Sample Application")
 
 It's Also called K8s so K ubernete s, 8 characters in the middle are removed. Now you can impress your friends that you know why it's referred to as K8.
 Here is some more Jeopardy knowledge on its origin. Kubernetes was born out of systems called Borg and Omega. It was donated to CNCF, Cloud Native Computing Foundation in 2014. It's written in Go/Golang.
@@ -115,7 +115,7 @@ Ok, now we are ready to learn Kubernetes.
 In learning Kubernetes lets do so by learning more about kubectl a command line program that lets us interact with our Cluster and lets us deploy and manage applications on said Cluster.
 The word Cluster just means a group of similar things but in the context of Kubernetes, it means a Master and multiple worker machines called Nodes. Nodes were historically called Minions 
 
-![ASP.Net sample Application from docs.microsoft.com](./images/minion.gif "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./img/minion.gif "Sample Application")
 
 , but not so anymore.
 The master decides what will run on the Nodes, which includes things like scheduled workloads or containerized apps. Which brings us to our next command:
@@ -131,14 +131,14 @@ Next up lets check that everything is up and running with the command:
 kubectl get deployments
 ```
 
-![ASP.Net sample Application from docs.microsoft.com](./images/kubectl1.jpg "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./img/kubectl1.jpg "Sample Application")
 
 Boosting your kubectl productivity by [Daniel Weibel](https://learnk8s.io/blog/kubectl-productivity/)
 
 
 ### Pods ###
 
-![ASP.Net sample Application from docs.microsoft.com](./images/pods-driveway.jpg "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./img/pods-driveway.jpg "Sample Application")
 
     - Pods are the basic unit for running Containers inside of Kubernetes
     - Pods can have one or more containers inside

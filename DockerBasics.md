@@ -56,7 +56,7 @@ A repository is also the unit of privacy for an image. If you don't wish to shar
 Often you'll find that there's an image in Docker Hub that closely matches the type of app you want to containerize. You can download such an image and extend it with your own application code.
 Docker Hub contains many thousands of images. While it's possible to search and browse a registry using Docker from the command line, Docker Hub offers a website that enables you to search, filter, and select images by type and publisher. The figure below shows an example of the search page.
 
-![Docker Hub from hub.docker.com](./images/2-docker-hub-search.png "Docker Hub")
+![Docker Hub from hub.docker.com](./img/2-docker-hub-search.png "Docker Hub")
 
 You retrieve an image by using the docker pull command with the image name. If you specify only the repository name, Docker will download the image tagged latest from that repository on Docker Hub, but you can modify the command to pull different tags and from different repositories. This example fetches the image with the tag aspnetappfrom the microsoft/dotnet-samples repository (this image contains a simple ASP.NET web app).
 
@@ -102,7 +102,7 @@ Application started. Press Ctrl+C to shut down.
 
 This image contains a web app, so it's now listening for requests to arrive on HTTP port 80. However, if you open a web browser and navigate to ```http://localhost:80```, you won't see the app.
 
-![ASP.Net sample Application from docs.microsoft.com](./images/2-sample-web-app.png "Sample Application")
+![ASP.Net sample Application from docs.microsoft.com](./img/2-sample-web-app.png "Sample Application")
 
 By default, Docker doesn't allow inbound network requests to reach your container. To enable network requests, you need to tell Docker to assign a specific port number from your computer to a specific port number in the container by adding the ```-p``` option to ```docker run```.
 
