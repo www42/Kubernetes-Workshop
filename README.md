@@ -1,10 +1,7 @@
-# Kubernetes Workshop #
+# Workshop Docker / Kubernetes  #
 
-## Docker Basics
 
 [All you need to know about Docker.](DockerBasics.md)
-
-## K8S Architecture ##
 
 [Read more about Kubernetes architecture.](KubernetesArchitecture.md)
 
