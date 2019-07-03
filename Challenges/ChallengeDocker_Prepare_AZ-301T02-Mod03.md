@@ -40,4 +40,12 @@ docker version
 ```
 </details>
 
+Clone the repo.
+<details>
+
+```bash
+git clone https://github.com/www42/k8w.git
+```
+</details>
+
 You are ready for the [Docker challenge](ChallengeDocker.md)!
