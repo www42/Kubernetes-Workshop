@@ -47,7 +47,7 @@ docker image ls mynginx:red
 
 
 Change the registry in your custom image by tagging.
-![Tagging Docker Images](img\ImageNomenklatur.png)
+![Tagging Docker Images](img/ImageNomenklatur.png)
 <details>
 
 ```bash
