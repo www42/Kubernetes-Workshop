@@ -7,7 +7,9 @@
 
 ## Challenges ##
 
-[Challenge 1](Challenges/ChallengeDocker.md) - Build a Docker image locally (Just finished AZ-301T02 Lab Mod03? Click [here](Challenges\ChallengeDocker_Prepare_AZ-301T02-Mod03.md) to prepare for this challenge.)
+[Challenge 1](Challenges/ChallengeDocker.md) - Build a Docker image locally 
+
+(Just finished AZ-301T02 Lab Mod03? Click [here](Challenges/ChallengeDocker_Prepare_AZ-301T02-Mod03.md) to prepare for challenge 1.)
 
 [Challenge 2](Challenges/ChallengeRegistry.md) - Create your own private Container Registry in Azure
 
