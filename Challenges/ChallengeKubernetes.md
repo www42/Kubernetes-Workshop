@@ -27,8 +27,8 @@ Create minimal Kubernetes cluster. Choose an adequate VM size. This could take a
 <details>
 
 ```bash
-clusterName=cluster1
-az aks create --name $clusterName --resource-group $rgName
+clusterName='cluster1'
+az aks create --name $clusterName --resource-group $rgName --generate-ssh-key
 ```
 </details>
 
@@ -44,6 +44,7 @@ By default 3 VMs (=nodes) are created.
 az group list -o table
 
 infrastructureRgName='MC_'$rgName'_'$clusterName'_'$location
+az resource list --resource-group $rgName -o table
 az resource list --resource-group $infrastructureRgName -o table
 
 az vm list --resource-group $infrastructureRgName --show-details -o table
