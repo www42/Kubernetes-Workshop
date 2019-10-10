@@ -1,3 +1,18 @@
+# Create resource group
+rg="Kubernetes-RG"
+location="westeurope"
+az group create --name $rg --location $location
+
+# Create Kubernetes Cluster
+name="akscluster1"
+size="Standard_DS1_v2"
+count="1"
+az aks create --name $name --resource-group $rg --node-vm-size $size --node-count $count --generate-ssh-keys
+
+
+# Connect to cluster
+az aks get-credentials --resource-group $rg --name $name
+
 kubectl config get-contexts
 kubectl config current-context
 
