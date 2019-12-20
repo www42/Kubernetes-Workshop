@@ -1,6 +1,6 @@
-# Login to Azure Subscription (not neede if using CloudShell)
-az login
-az account list --all -o table
+# Login to Azure Subscription (not needed if using CloudShell)
+#az login
+#az account list --all -o table
 
 # Create Resource Group
 rgName='kubernetes-RG'
