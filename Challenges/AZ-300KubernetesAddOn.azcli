@@ -3,16 +3,16 @@ az login
 az account list --all -o table
 
 # Create Resource Group
-rgName='kubernetes-RG'
+RG='kubernetes-RG'
 location='westeurope'
-az group create --name $rgName --location $location
+az group create --name $RG --location $location
 
 # Create minimal Kubernetes Cluster (10 minutes)
-clusterName='cluster1'
-az aks create --name $clusterName --resource-group $rgName --node-count 1 --node-vm-size Standard_DS2_v2 --generate-ssh-keys
+cluster='cluster1'
+az aks create --name $cluster --resource-group $RG --node-count 1 --node-vm-size Standard_DS2_v2 --generate-ssh-keys
 
 # Retrieve Credentials
-az aks get-credentials --name $clusterName --resource-group $rgName
+az aks get-credentials --name $cluster --resource-group $RG
 kubectl config view
 kubectl config get-contexts
 
