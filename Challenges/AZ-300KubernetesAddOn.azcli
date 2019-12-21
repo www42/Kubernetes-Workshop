@@ -1,6 +1,6 @@
-# Login to Azure Subscription (not neede if using CloudShell)
-az login
-az account list --all -o table
+# Login to Azure Subscription (not needed if using CloudShell)
+#az login
+#az account list --all -o table
 
 # Create Resource Group
 RG='kubernetes-RG'
@@ -21,3 +21,19 @@ kubectl cluster-info
 kubectl get nodes
 kubectl get pods
 kubectl get pods --all-namespaces
+
+# Deploy nginx
+kubectl apply -f https://raw.githubusercontent.com/www42/k8w/master/Challenges/Kubernetes/nginx-deployment.yaml
+kubectl get deployment
+kubectl get service
+kubectl get pods
+
+# Scale out nodes
+az aks scale --resource-group $rgName --name $clusterName --node-count 2
+
+# Deploy voting app
+# See https://docs.microsoft.com/de-de/azure/aks/kubernetes-walkthrough
+kubectl apply -f https://raw.githubusercontent.com/www42/k8w/master/Challenges/Kubernetes/azure-vote.yaml
+kubectl get deployment
+kubectl get service
+kubectl get pods
