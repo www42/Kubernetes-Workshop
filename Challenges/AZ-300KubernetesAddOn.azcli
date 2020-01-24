@@ -29,7 +29,7 @@ kubectl get service
 kubectl get pods
 
 # Scale out nodes
-az aks scale --resource-group $rgName --name $cluster --node-count 2
+az aks scale --resource-group $RG --name $cluster --node-count 2
 
 # Deploy voting app
 # See https://docs.microsoft.com/de-de/azure/aks/kubernetes-walkthrough
