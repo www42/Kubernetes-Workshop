@@ -30,10 +30,14 @@ kubectl get pods
 
 # Scale out nodes
 az aks scale --resource-group $RG --name $cluster --node-count 2
+az aks show --resource-group $RG --name $cluster --query agentPoolProfiles
 
 # Deploy voting app
 # See https://docs.microsoft.com/de-de/azure/aks/kubernetes-walkthrough
 kubectl apply -f https://raw.githubusercontent.com/www42/k8w/master/Challenges/Kubernetes/azure-vote.yaml
 kubectl get deployment
-kubectl get service
 kubectl get pods
+kubectl get service
+
+# Wait for EXTERNAL-IP
+# Browse http://<EXTERNAL-IP>
